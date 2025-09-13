@@ -4,6 +4,7 @@ import { LanguageProvider } from './contexts/LanguageContext';
 import Header from './components/Header';
 import Home from './pages/Home';
 import Products from './pages/Products';
+import Services from './pages/Services';
 import Admin from './pages/Admin';
 
 function App() {
@@ -15,6 +16,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/services" element={<Services />} />
             <Route path="/admin" element={<Admin />} />
           </Routes>
         </div>

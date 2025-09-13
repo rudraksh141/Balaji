@@ -17,15 +17,14 @@ const Header: React.FC = () => {
       animate={{ y: 0 }}
       className="bg-white/95 backdrop-blur-sm shadow-lg sticky top-0 z-50"
     >
-      <nav className="container mx-auto px-2 sm:px-4 py-3">
+      <nav className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-2 group">
             <Building2 className="h-6 w-6 sm:h-8 sm:w-8 text-orange-600 group-hover:scale-110 transition-transform" />
             <span className="text-lg sm:text-xl font-bold text-gray-800">Balaji Boundary Walls</span>
           </Link>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-6">
+          <div className="hidden md:flex items-center space-x-8">
             <Link 
               to="/" 
               className={`font-medium transition-colors hover:text-orange-600 ${
@@ -43,6 +42,14 @@ const Header: React.FC = () => {
               {t('products')}
             </Link>
             <Link 
+              to="/services" 
+              className={`font-medium transition-colors hover:text-orange-600 ${
+                isActive('/services') ? 'text-orange-600' : 'text-gray-700'
+              }`}
+            >
+              {t('services')}
+            </Link>
+            <Link 
               to="/admin" 
               className={`font-medium transition-colors hover:text-orange-600 ${
                 isActive('/admin') ? 'text-orange-600' : 'text-gray-700'
@@ -52,8 +59,7 @@ const Header: React.FC = () => {
             </Link>
           </div>
 
-          {/* Language Switcher & Mobile Menu Button */}
-          <div className="flex items-center space-x-2 sm:space-x-4">
+          <div className="flex items-center space-x-4">
             <button
               onClick={() => setLanguage(language === 'hi' ? 'en' : 'hi')}
               className="flex items-center space-x-1 px-2 py-1 sm:px-3 rounded-full bg-orange-100 text-orange-600 hover:bg-orange-200 transition-colors"
@@ -68,7 +74,6 @@ const Header: React.FC = () => {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
-              aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? (
                 <X className="h-5 w-5 text-gray-700" />
@@ -84,7 +89,7 @@ const Header: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="md:hidden mt-2 pb-4 border-t border-gray-200"
+            className="md:hidden mt-4 pb-4 border-t border-gray-200"
           >
             <div className="flex flex-col space-y-3 pt-4">
               <Link 
@@ -104,6 +109,15 @@ const Header: React.FC = () => {
                 }`}
               >
                 {t('products')}
+              </Link>
+              <Link 
+                to="/services" 
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`font-medium transition-colors hover:text-orange-600 ${
+                  isActive('/services') ? 'text-orange-600' : 'text-gray-700'
+                }`}
+              >
+                {t('services')}
               </Link>
               <Link 
                 to="/admin" 
